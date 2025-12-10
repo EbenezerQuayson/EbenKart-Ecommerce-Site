@@ -21,14 +21,14 @@ function updateCartUI() {
           (item, index) => `
                 <div class="cart-item">
                     <div class="cart-item-image">
-                        <img src="shop/1.jpg" alt="¢{item.name}">
+                        <img src="/images/shop/${index + 1}.jpg" alt="${item.name}">
                     </div>
                     <div class="cart-item-details">
-                        <h3>¢{item.name}</h3>
-                        <p>¢¢{item.price.toFixed(2)}</p>
+                        <h3>${item.name}</h3>
+                        <p>¢${item.price.toFixed(2)}</p>
                     </div>
                     <div class="cart-item-remove">
-                        <button onclick="removeFromCart(¢{index})">Remove</button>
+                        <button onclick="removeFromCart(${index})">Remove</button>
                     </div>
                 </div>
             `,
@@ -47,7 +47,7 @@ function addToCart(name, price) {
   updateCartUI()
 
   // Show feedback
-  alert(`¢{name} added to cart!`)
+  alert(`${name} added to cart!`)
 }
 
 function removeFromCart(index) {
@@ -79,7 +79,7 @@ function checkout() {
 function handleNewsletter(event) {
   event.preventDefault()
   const email = event.target.querySelector('input[type="email"]').value
-  alert(`Thank you for subscribing with ¢{email}!`)
+  alert(`Thank you for subscribing with ${email}!`)
   event.target.reset()
 }
 
@@ -99,3 +99,5 @@ if (priceRange) {
     document.getElementById("price-value").textContent = e.target.value
   })
 }
+
+
